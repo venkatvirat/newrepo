@@ -4,7 +4,7 @@
   <groupId>com.rns.simpleweb</groupId>
   <artifactId>webapp</artifactId>
   <packaging>war</packaging>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <name>webapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -23,12 +23,12 @@
     <repository>
       <id>deployment</id>
       <name>Releases</name>
-      <url>http://3.110.219.232:8081/repository/maven-releases/</url>
+      <url>http://43.205.144.208:8081/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
       <id>deployment</id>
       <name>Snapshot</name>
-      <url>http://3.110.219.232:8081/repository/maven-snapshots/</url>
+      <url>http://43.205.144.208:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
 </distributionManagement>
 
