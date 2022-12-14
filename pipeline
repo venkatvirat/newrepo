@@ -1,0 +1,53 @@
+pipeline {
+	agent {
+		label "build-server"
+	}
+
+	tools {
+		maven 'maven3.8'
+	}
+
+	stages {
+		stage('preparation') {
+			steps {
+				echo "integration with git hub repository"
+				git branch: 'main', credentialsId: 'my github credentials', url: 'https://github.com/konkimohan/newrepo.git'
+			}
+		}
+
+		stage('compiling the source code') {
+			steps {
+				echo "compiling the source code"
+				sh "mvn clean compile"
+			}
+		}
+		
+		stage('unit-test-cases') {
+		    steps {
+		        echo "running the unit test cases"
+		        sh "mvn clean test"
+		    }
+		}
+		
+		stage('package the source code') {
+		    steps {
+		        echo "package the source code"
+		        sh "mvn clean deploy"
+		    }
+		    post {
+		        success {
+		            echo "archive the artifacts"
+		            archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
+		        }
+		    }
+		}
+		
+		stage('deploying into the tomcat server') {
+		    steps {
+		        echo "deploying the .war file into the tomcat server"
+		        deploy adapters: [tomcat9(credentialsId: 'tomcat-server', path: '', url: 'http://13.233.64.255:8080/')], contextPath: 'webapps', war: 'target/*.war'
+		    }
+		}
+	}
+}
+
