@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World! welcome to my world jenkins pipeline project this is mohan project </h2>
+<h2>Hello World! welcome to my world jenkins pipeline .THIS IS MY JENKINS FREESTYLE PROJECT </h2>
 </body>
 </html>
