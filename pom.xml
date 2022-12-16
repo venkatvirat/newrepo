@@ -21,15 +21,17 @@
 
   <distributionManagement>
     <repository>
-      <id>deployment</id>
-      <name>Releases</name>
-      <url>http://43.204.231.115:8081/repository/maven-releases/</url>
+        <id>nexus-releases</id>
+        <name>releases</name>
+        <url>http://43.204.231.115:8081/repository/maven-releases/</url>
     </repository>
-    <snapshotRepository>
-      <id>deployment</id>
-      <name>Snapshot</name>
-      <url>http://43.204.231.115:8081/repository/maven-snapshots/</url>
-    </snapshotRepository>
+
+ 
+    <repository>
+        <id>nexus-snapshots</id>
+        <name>snapshot</name>
+        <url>http://43.204.231.115:8081/repository/maven-snapshots/</url>
+    </repository>
 </distributionManagement>
 
 </project>
